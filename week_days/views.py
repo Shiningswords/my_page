@@ -1,3 +1,10 @@
 from django.shortcuts import render
+from django.http import HttpResponse
 
-# Create your views here.
+
+def monday(request):
+    return HttpResponse('1. Выучить Python\n2.Выучить SQL')
+
+
+def tuesday(request):
+    return HttpResponse('1. Выучить Django\n2.Profit')
