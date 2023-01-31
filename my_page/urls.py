@@ -15,7 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from fruits import views as views_fruits
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('fruits/apple', views_fruits.apple),
+    path('fruits/banana', views_fruits.banana)
 ]
