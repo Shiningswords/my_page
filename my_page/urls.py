@@ -15,11 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from week_days import views as views_week
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('fruits/', include('fruits.urls')),
-    path('week_days/monday', views_week.monday),
-    path('week_days/tuesday', views_week.tuesday),
+    path('week_days/', include('week_days.urls'))
 ]
