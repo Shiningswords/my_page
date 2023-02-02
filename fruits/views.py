@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseNotFound
+from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect
 
 fruits = {
     'apple': 'Яблоко',
@@ -19,4 +19,8 @@ def get_info_about_all_fruits(request, all_fruits: str):
 
 
 def get_info_about_all_fruits_by_num(request, all_fruits: int):
-    return HttpResponse(f'Это номер {all_fruits}')
+    fruits_list = list(fruits)
+    if all_fruits > len(fruits_list) or all_fruits < 0:
+        return HttpResponseNotFound(f'Такой номер фрукта отсутствует ({all_fruits})')
+    fruit_num = fruits_list[all_fruits - 1]
+    return HttpResponseRedirect(f'/fruits/{fruit_num}')
