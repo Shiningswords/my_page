@@ -19,5 +19,6 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('fruits/', include('fruits.urls')),
-    path('week_days/', include('week_days.urls'))
+    path('week_days/', include('week_days.urls')),
+    path('calculate_geometry/', include('geometry.urls'))
 ]
