@@ -11,6 +11,15 @@ fruits = {
 }
 
 
+def index(request):
+    li_elements = ''
+    for fruit in fruits:
+        redirect_path = reverse('fruits-name', args=(fruit,))
+        li_elements += '<li>' + f'<a href={redirect_path}>' + fruit.title() + '</a>' + '</li>'
+    ol_elements = '<ol>' + li_elements + '</ol>'
+    return HttpResponse(ol_elements)
+
+
 def get_info_about_all_fruits(request, all_fruits: str):
     description = fruits.get(all_fruits, None)
     if description:
