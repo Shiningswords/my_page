@@ -14,7 +14,7 @@ fruits = {
 def get_info_about_all_fruits(request, all_fruits: str):
     description = fruits.get(all_fruits, None)
     if description:
-        return HttpResponse(description)
+        return HttpResponse(f'<h2>{description}</h2>')
     else:
         return HttpResponseNotFound(f'Фрукт {all_fruits} не найден')
 
