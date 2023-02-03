@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect
+from django.urls import reverse
 
 fruits = {
     'apple': 'Яблоко',
@@ -23,4 +24,5 @@ def get_info_about_all_fruits_by_num(request, all_fruits: int):
     if all_fruits > len(fruits_list) or all_fruits < 1:
         return HttpResponseNotFound(f'Такой номер фрукта отсутствует ({all_fruits})')
     fruit_num = fruits_list[all_fruits - 1]
-    return HttpResponseRedirect(f'/fruits/{fruit_num}')
+    redirect_url = reverse('fruits-name', args=(fruit_num,))
+    return HttpResponseRedirect(redirect_url)
