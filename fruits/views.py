@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect
 from django.urls import reverse
+from django.template.loader import render_to_string
 
 fruits = {
     'apple': 'Яблоко',
@@ -47,11 +48,8 @@ def types_f(request, type_fruits):
 
 
 def get_info_about_all_fruits(request, all_fruits: str):
-    description = fruits.get(all_fruits, None)
-    if description:
-        return HttpResponse(f'<h2>{description}</h2>')
-    else:
-        return HttpResponseNotFound(f'Фрукт {all_fruits} не найден')
+    response = render_to_string('fruits/info_fruits.html')
+    return HttpResponse(response)
 
 
 def get_info_about_all_fruits_by_num(request, all_fruits: int):
