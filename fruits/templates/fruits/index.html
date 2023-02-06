@@ -1,14 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Меню</title>
-</head>
-<body>
+{% extends 'base.html'%}
+
+
+{% block title%}
+Меню
+{% endblock %}
+
+{% block content%}
   <ul>
     {% for fruit in fruits_list %}
       <li><a href="{% url 'fruits-name' all_fruits=fruit %}">{{fruit|title}}</a></li>
+      <br>
     {% endfor %}
   </ul>
-</body>
-</html>
+{% endblock %}
