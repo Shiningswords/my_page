@@ -48,8 +48,7 @@ def types_f(request, type_fruits):
 
 
 def get_info_about_all_fruits(request, all_fruits: str):
-    response = render_to_string('fruits/info_fruits.html')
-    return HttpResponse(response)
+    return render(request, 'fruits/info_fruits.html')
 
 
 def get_info_about_all_fruits_by_num(request, all_fruits: int):
