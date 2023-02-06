@@ -21,12 +21,11 @@ fruits_type = {
 
 
 def index(request):
-    li_elements = ''
-    for fruit in fruits:
-        redirect_path = reverse('fruits-name', args=(fruit,))
-        li_elements += '<li>' + f'<a href={redirect_path}>' + fruit.title() + '</a>' + '</li>'
-    ol_elements = '<ol>' + li_elements + '</ol>'
-    return HttpResponse(ol_elements)
+    fruits_list = list(fruits)
+    data = {
+        'fruits_list': fruits_list
+    }
+    return render(request, 'fruits/index.html', data)
 
 
 def types(request):
