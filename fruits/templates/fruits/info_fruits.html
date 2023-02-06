@@ -6,9 +6,11 @@
 {% endblock %}
 
 {% block content%}
+    {% include 'includes/navbar.html' %}
     {% if description_fruits is None %}
         <h2>Такого фрукта нет</h2>
     {% else %}
         <h2>{{description_fruits| title}}</h2>
     {% endif %}
+    {% include 'includes/navbar.html' %}
 {% endblock %}

@@ -6,10 +6,12 @@
 {% endblock %}
 
 {% block content%}
+  {% include 'includes/navbar.html' %}
   <ul>
     {% for fruit in fruits_list %}
       <li><a href="{% url 'fruits-name' all_fruits=fruit %}">{{fruit|title}}</a></li>
       <br>
     {% endfor %}
   </ul>
+  {% include 'includes/navbar.html' %}
 {% endblock %}
