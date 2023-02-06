@@ -23,8 +23,4 @@ def get_info_about_all_week(request, all_week: int):
 
 
 def get_info_about_all_week_str(request, all_week: str):
-    description = week.get(all_week, None)
-    if description:
-        return HttpResponse(description)
-    else:
-        return HttpResponseNotFound(f'Такого дня недели не существует ({all_week})')
+    return render(request, 'week_days/greeting.html')
