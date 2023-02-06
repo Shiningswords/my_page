@@ -6,6 +6,10 @@
 </head>
 <body>
     <h1>Приложение Фрукты</h1>
-    <h2>{{description_fruits}}</h2>
+    {% if description_fruits is None %}
+        <h2>Такого фрукта нет</h2>
+    {% else %}
+        <h2>{{description_fruits| title}}</h2>
+    {% endif %}
 </body>
 </html>
