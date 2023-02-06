@@ -1,15 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Фрукты ({{description_fruits}})</title>
-</head>
-<body>
-    <h1>Приложение Фрукты</h1>
+{% extends 'base.html'%}
+
+
+{% block title%}
+Фрукты ({{description_fruits}})
+{% endblock %}
+
+{% block content%}
     {% if description_fruits is None %}
         <h2>Такого фрукта нет</h2>
     {% else %}
         <h2>{{description_fruits| title}}</h2>
     {% endif %}
-</body>
-</html>
+{% endblock %}
