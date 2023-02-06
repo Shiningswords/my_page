@@ -7,7 +7,7 @@
 <body>
   <ul>
     {% for fruit in fruits_list %}
-      <li>{{fruit|title}}</li>
+      <li><a href="{% url 'fruits-name' all_fruits=fruit %}">{{fruit|title}}</a></li>
     {% endfor %}
   </ul>
 </body>
